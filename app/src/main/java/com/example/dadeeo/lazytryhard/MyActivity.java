@@ -6,12 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class MyActivity extends Activity {
     Button btnGreetings;
     TextView tvGreetings;
+    EditText etName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +22,15 @@ public class MyActivity extends Activity {
         setContentView(R.layout.activity_my);
         btnGreetings = (Button)findViewById(R.id.btnHello);
         tvGreetings = (TextView)findViewById(R.id.tvGreetings);
+        etName = (EditText)findViewById(R.id.etName);
         btnGreetings.setOnClickListener(new View.OnClickListener() {
             int nCount = 0;
             @Override
             public void onClick(View v) {
+                String sName;
+                sName = etName.getText().toString();
                 nCount++;
-                tvGreetings.setText("Howdy "+nCount + " times");
+                tvGreetings.setText("Howdy "+nCount + " times " + sName);
             }
         });
     }
