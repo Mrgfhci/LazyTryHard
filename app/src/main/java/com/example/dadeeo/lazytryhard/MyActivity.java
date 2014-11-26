@@ -15,14 +15,17 @@ public class MyActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
         btnGreetings = (Button)findViewById(R.id.btnHello);
         tvGreetings = (TextView)findViewById(R.id.tvGreetings);
         btnGreetings.setOnClickListener(new View.OnClickListener() {
+            int nCount = 0;
             @Override
             public void onClick(View v) {
-                tvGreetings.setText("Howdy");
+                nCount++;
+                tvGreetings.setText("Howdy "+nCount + " times");
             }
         });
     }
